@@ -1,8 +1,18 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { Inter } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs'
+import { plPL, esES, enUS, itIT } from "@clerk/localizations";
+import './globals.css'
+
+
+const lang = {
+  'pl': plPL,
+  'es': esES,
+  'en': enUS,
+  'it': itIT
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode,
   params: { locale: string }
 }) {
-  const locale = useLocale();
+  const locale = useLocale()
 
   // Show a 404 error if the user requests an unknown locale
   if (params.locale !== locale) {
@@ -26,8 +36,10 @@ export default function RootLayout({
   }
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider localization={lang[locale as keyof typeof lang]}>
+      <html lang={locale}>
+        <body className={inter.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   )
 }
