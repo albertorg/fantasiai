@@ -38,7 +38,9 @@ export default function RootLayout({
   return (
     <ClerkProvider localization={lang[locale as keyof typeof lang]}>
       <html lang={locale}>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   )
