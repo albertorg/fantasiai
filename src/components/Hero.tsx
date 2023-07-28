@@ -31,7 +31,7 @@ export const Hero = () => {
                         <div className="text-center">
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                                 Create personalized&nbsp;
-                                <span className='inline-block bg-gradient-to-t from-orange-200 to-orange-500 bg-clip-text [-webkit-text-fill-color:transparent]'>
+                                <span className='inline-block '>
                                     bedtime&nbsp;
                                 </span>
                                 <span className='inline-block bg-gradient-to-t from-sky-600 to-blue-300 bg-clip-text [-webkit-text-fill-color:transparent]'>
