@@ -1,11 +1,14 @@
-// import { SignInButton, SignOutButton } from "@clerk/nextjs"
 import { Hero } from "@/components/Hero"
-import { useTranslations } from "next-intl"
+import { getTranslator } from "next-intl/server"
 
+interface Props {
+  params: { locale: string }
+}
 
-export default function HomePage() {
+export default function HomePage({ params: { locale } }: Props) {
 
-  const t = useTranslations('Index')
+  const t = getTranslator(locale, 'Index')
+  
 
   return (
     <main>

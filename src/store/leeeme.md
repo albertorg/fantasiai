@@ -1,0 +1,1 @@
+Por ahora no se esta usando el estado  global

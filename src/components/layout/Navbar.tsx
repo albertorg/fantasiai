@@ -1,6 +1,6 @@
 import { SignInButton, SignOutButton, UserButton } from '@clerk/nextjs'
 import Link from "next/link"
-import { currentUser } from '@clerk/nextjs'
+import { auth } from '@clerk/nextjs'
 import {
     Sheet,
     SheetContent,
@@ -17,10 +17,9 @@ const navigation = [
     { name: 'Blog', href: '#' },
 ]
 
-export default async function Example() {
+export default function Example() {
 
-    // todo: Save in state the user taht have to be check in the first open
-    const user = await currentUser()
+    const { userId } = auth()
 
     return (
         <Sheet>
@@ -51,7 +50,7 @@ export default async function Example() {
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         {
-                            user ? <UserButton />
+                            userId ? <UserButton />
                                 : <SignInButton mode="modal">
                                     <button className="text-sm font-semibold leading-6 text-gray-900">
                                         Sign in <span aria-hidden="true">&rarr;</span>
@@ -92,7 +91,7 @@ export default async function Example() {
                             </div>
                             <div className="py-6">
                                 {
-                                    user ? <SignOutButton>
+                                    userId ? <SignOutButton>
                                             <button className="text-sm font-semibold leading-6 text-gray-900">
                                                 Sign out <span aria-hidden="true">&rarr;</span>
                                             </button>
