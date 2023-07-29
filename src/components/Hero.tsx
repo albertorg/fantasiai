@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-export const Hero = () => {
+const Hero = () => {
     return (
         <section>
             <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -96,3 +96,6 @@ export const Hero = () => {
         </section>
     )
 }
+
+export default Hero
+

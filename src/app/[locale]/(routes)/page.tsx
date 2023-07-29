@@ -1,25 +1,11 @@
-import { Hero } from "@/components/Hero"
-import { getTranslator } from "next-intl/server"
+import { Hero } from "@/components"
 
-interface Props {
-  params: { locale: string }
-}
 
-export default function HomePage({ params: { locale } }: Props) {
-
-  const t = getTranslator(locale, 'Index')
-  
+export default function HomePage() {
 
   return (
     <main>
       <Hero />
-      {/* {t('title')} */}
-      {/* <SignOutButton />
-      <SignInButton mode="modal">
-        <button className="btn">
-          Sign in
-        </button>
-      </SignInButton> */}
     </main>
   )
 }
