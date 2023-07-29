@@ -1,6 +1,7 @@
-import { SignInButton, SignOutButton, UserButton } from '@clerk/nextjs'
+'use client'
+import { SignInButton, SignOutButton, UserButton, useAuth } from '@clerk/nextjs'
 import Link from "next/link"
-import { auth } from '@clerk/nextjs'
+
 import {
     Sheet,
     SheetContent,
@@ -8,21 +9,25 @@ import {
     SheetClose
 } from "@/components/ui/sheet"
 import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
+// import { useTranslations } from 'next-intl'
 
 
 const navigation = [
-    { name: 'Write a story', href: '/app' },
-    { name: 'Library', href: '/library' },
-    { name: 'Plan & Price', href: '#' },
-    { name: 'Blog', href: '#' },
+    { name: 'write' as const, href: '/app' },
+    { name: 'library' as const, href: '/library' },
+    { name: 'plans' as const, href: '#' },
+    { name: 'blog' as const, href: '#' },
 ]
 
 export default function Example() {
 
-    const { userId } = auth()
-
+    const { userId } = useAuth()
+    const [open, setOpen] = useState(false)
+    // const t = useTranslations('Navbar')
+    
     return (
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
@@ -36,7 +41,7 @@ export default function Example() {
                         </Link>
                     </div>
                     <div className="flex lg:hidden">
-                        <SheetTrigger>
+                        <SheetTrigger onClick={() => setOpen(true)} >
                             <span className="sr-only">Open main menu</span>
                             <Menu strokeWidth={1.60} aria-hidden="true" />
                         </SheetTrigger>
@@ -71,7 +76,7 @@ export default function Example() {
                                 alt=""
                             />
                         </Link>
-                        <SheetClose>
+                        <SheetClose onClick={() => setOpen(false)}>
                             <span className="sr-only">Close menu</span>
                             <X strokeWidth={1.60} aria-hidden="true" />
                         </SheetClose>
@@ -83,6 +88,7 @@ export default function Example() {
                                     <Link
                                         key={item.name}
                                         href={item.href}
+                                        onClick={() => setOpen(false)}
                                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         {item.name}
@@ -92,22 +98,22 @@ export default function Example() {
                             <div className="py-6">
                                 {
                                     userId ? <SignOutButton>
-                                            <button className="text-sm font-semibold leading-6 text-gray-900">
+                                            <button
+                                                onClick={() => setOpen(false)} 
+                                                className="text-sm font-semibold leading-6 text-gray-900"
+                                            >
                                                 Sign out <span aria-hidden="true">&rarr;</span>
                                             </button>
                                         </SignOutButton>
                                         : <SignInButton mode="modal">
-                                            <button className="text-sm font-semibold leading-6 text-gray-900">
+                                            <button 
+                                                onClick={() => setOpen(false)} 
+                                                className="text-sm font-semibold leading-6 text-gray-900"
+                                            >
                                                 Sign in <span aria-hidden="true">&rarr;</span>
                                             </button>
                                         </SignInButton>
                                 }
-                                {/* <Link
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Log in <span aria-hidden="true">&rarr;</span>
-                                </Link> */}
                             </div>
                         </div>
                     </div>

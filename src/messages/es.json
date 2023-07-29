@@ -1,5 +1,11 @@
 {
     "Index": {
         "title": "Hola mundo!"
+    },
+    "Navbar": {
+        "write": "Escribir una historia",
+        "library": "Biblioteca",
+        "plans": "Planes & Precios",
+        "blog": "Blog"
     }
 }
