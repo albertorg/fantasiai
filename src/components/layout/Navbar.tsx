@@ -1,7 +1,7 @@
 'use client'
+
 import { SignInButton, SignOutButton, UserButton, useAuth } from '@clerk/nextjs'
 import Link from "next/link"
-
 import {
     Sheet,
     SheetContent,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet"
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
-// import { useTranslations } from 'next-intl'
+
 
 
 const navigation = [
@@ -20,12 +20,23 @@ const navigation = [
     { name: 'blog' as const, href: '#' },
 ]
 
-export default function Example() {
+interface Props {
+    menuMsg: {
+        write: string,
+        library: string,
+        plans: string,
+        blog: string,
+        signIn: string,
+        logout: string
+    }
+}
+
+const Navbar = ({ menuMsg }: Props) => {
 
     const { userId } = useAuth()
     const [open, setOpen] = useState(false)
-    // const t = useTranslations('Navbar')
     
+ 
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             <header className="absolute inset-x-0 top-0 z-50">
@@ -49,7 +60,7 @@ export default function Example() {
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
                             <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                                {item.name}
+                                {menuMsg[item.name]}
                             </Link>
                         ))}
                     </div>
@@ -102,7 +113,7 @@ export default function Example() {
                                                 onClick={() => setOpen(false)} 
                                                 className="text-sm font-semibold leading-6 text-gray-900"
                                             >
-                                                Sign out <span aria-hidden="true">&rarr;</span>
+                                                {menuMsg.logout} <span aria-hidden="true">&rarr;</span>
                                             </button>
                                         </SignOutButton>
                                         : <SignInButton mode="modal">
@@ -110,7 +121,7 @@ export default function Example() {
                                                 onClick={() => setOpen(false)} 
                                                 className="text-sm font-semibold leading-6 text-gray-900"
                                             >
-                                                Sign in <span aria-hidden="true">&rarr;</span>
+                                                {menuMsg.signIn} <span aria-hidden="true">&rarr;</span>
                                             </button>
                                         </SignInButton>
                                 }
@@ -123,3 +134,5 @@ export default function Example() {
         </Sheet>
     )
 }
+
+export default Navbar

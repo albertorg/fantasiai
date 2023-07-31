@@ -1,7 +1,9 @@
 import { Hero } from "@/components"
 
 
-export default function HomePage() {
+const HomePage = async () => {
+
+  
 
   return (
     <main>
@@ -9,3 +11,6 @@ export default function HomePage() {
     </main>
   )
 }
+
+
+export default HomePage

@@ -1,11 +1,10 @@
 {
-    "Index": {
-        "title": "Cao mundi!"
-    },
     "Navbar": {
         "write": "Scrivere una storia",
         "library": "Biblioteca",
         "plans": "Piani & Prezzi",
-        "blog": "Blog"
+        "blog": "Blog",
+        "signIn": "Accedi",
+        "logout": "Esci"
     }
 }

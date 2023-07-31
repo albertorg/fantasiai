@@ -4,7 +4,6 @@ import { useLocale } from 'next-intl'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { plPL, esES, enUS, itIT } from "@clerk/localizations"
-import ReduxProvider from './redux-provider'
 import './globals.css'
 
 
@@ -29,16 +28,14 @@ export default function RootLayout({
 
   // Show a 404 error if the user requests an unknown locale
   if (params.locale !== locale) {
-    notFound();
-  }
+    notFound()
+  }    
 
   return (
     <ClerkProvider localization={lang[params.locale as keyof typeof lang]}>
-      <html lang={params.locale}>
+      <html lang={locale}>
         <body className={inter.className}>
-          <ReduxProvider>
             {children}
-          </ReduxProvider>
         </body>
       </html>
     </ClerkProvider>
