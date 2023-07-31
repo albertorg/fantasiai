@@ -1,11 +1,10 @@
 {
-    "Index": {
-        "title": "sldjkfjsdkf polaco!"
-    },
     "Navbar": {
         "write": "Napisz historię",
         "library": "Biblioteka",
         "plans": "Plany & Ceny",
-        "blog": "Blog"
+        "blog": "Blog",
+        "signIn": "Zaloguj się",
+        "logout": "Wyloguj się"
     }
 }
