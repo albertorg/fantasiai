@@ -1,11 +1,15 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 const Hero = () => {
+
+    const t = useTranslations('Home.Hero')
+
     return (
         <section>
-            <div className="relative isolate px-6 pt-14 lg:px-8">
+            <div className="relative isolate px-6 pt-14 lg:px-8 flex items-center min-h-[calc(100dvh-80px)]">
                 <div
                     className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                     aria-hidden="true"
@@ -18,48 +22,44 @@ const Hero = () => {
                         }}
                     />
                 </div>
-
-                <div className='flex items-center justify-between max-w-[1450px] mx-auto gap-8'>
-                    <div className="max-w-2xl py-32 sm:py-48 lg:py-56 flex-1">
+                
+                <div className='flex flex-col min-[1160px]:flex-row items-center justify-between max-w-[1450px] mx-auto gap-8'>
+                    <div className="max-w-2xl py-32 sm:py-40 lg:py-48">
                         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                                This website is{' '}
-                                <span className="font-semibold text-blue-600">under construction</span>
+                                {t('alertMsg') + ' '}
+                                <span className="font-semibold text-blue-600">{t('alertMsgStyled')}</span>
                                 {'.'}
                             </div>
                         </div>
                         <div className="text-center">
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                Create personalized&nbsp;
-                                <span className='inline-block '>
-                                    bedtime&nbsp;
-                                </span>
+                                {t('title')}&nbsp;
                                 <span className='inline-block bg-gradient-to-t from-sky-600 to-blue-300 bg-clip-text [-webkit-text-fill-color:transparent]'>
-                                    stories
+                                    {t('titleStyled')}
                                 </span>
                             </h1>
                             <p className="mt-6 text-lg leading-8 text-gray-600">
-                                Create magical memories with AI-powered personalized bedtime stories! Watch your child become the hero of imaginative
-                                adventures, where they&apos;ll meet extraordinary beings and uncover mesmerizing worlds.
+                                {t('description')}
                             </p>
                             <div className="mt-10 flex items-center justify-center gap-x-6">
                                 <Link
                                     href="#"
                                     className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
-                                    Get started
+                                    {t('getStarted')}
                                 </Link>
                                 <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                    Try now for free <span aria-hidden="true">→</span>
+                                    {t('tryNow')} <span aria-hidden="true">→</span>
                                 </Link>
                             </div>
                         </div>
                     </div>
 
-                    <div className='w-[700px] h-[700px] grid place-items-center'>
+                    <div className='max-w-[700px] max-h-[700px] grid place-items-center'>
                         <Image
-                            src="/good.png" //cambiar el nombre y arreglar la foto
-                            alt={"AQUI PONER ALGO DINAMICO"}
+                            src="/home/bedtime-story.webp"
+                            alt={t('alt')}
                             width={700}
                             height={700}
                             priority

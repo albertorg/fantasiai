@@ -6,5 +6,17 @@
         "blog": "Blog",
         "signIn": "Login",
         "logout": "Cerrar sesión"
+    },
+    "Home": {
+        "Hero": {
+            "alertMsg": "Este sitio web está en",
+            "alertMsgStyled": "construcción",
+            "title": "Crea cuentos para dormir",
+            "titleStyled": "personalizados",
+            "description": "¡Crea recuerdos mágicos con cuentos de dormir personalizados impulsados por inteligencia artificial! Observa cómo tu hijo se convierte en el héroe de grandes aventuras, donde conocerán seres extraordinarios y descubrirán mundos fascinantes.",
+            "getStarted": "Comenzar",
+            "tryNow": "Prueba gratuita",
+            "alt": "cuentos para dormir"
+        }
     }
 }

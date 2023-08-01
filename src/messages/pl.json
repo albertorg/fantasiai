@@ -6,5 +6,17 @@
         "blog": "Blog",
         "signIn": "Zaloguj się",
         "logout": "Wyloguj się"
+    },
+    "Home": {
+        "Hero": {
+            "alertMsg": "Ta strona jest w",
+            "alertMsgStyled": "budowie",
+            "title": "Stwórz spersonalizowane bajki na",
+            "titleStyled": "dobranoc",
+            "description": "Twórz magiczne wspomnienia za pomocą bajek na dobranoc spersonalizowanych dzięki sztucznej inteligencji! Obserwuj, jak Twoje dziecko staje się bohaterem pełnych wyobraźni przygód, gdzie spotkają niezwykłe istoty i odkryją fascynujące światy.",
+            "getStarted": "Zacznij",
+            "tryNow": "Darmowa wersja próbna",
+            "alt": "Stwórz spersonalizowane bajki na dobranoc"
+        }
     }
 }
