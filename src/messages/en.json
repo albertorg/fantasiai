@@ -6,6 +6,19 @@
         "blog": "Blog",
         "signIn": "Sign in",
         "logout": "Log out"   
+    },
+    "Home": {
+        "Hero": {
+            "alertMsg": "This website is",
+            "alertMsgStyled": "under construction",
+            "title": "Create personalized bedtime",
+            "titleStyled": "stories",
+            "description": "Create magical memories with AI-powered personalized bedtime stories! Watch your child become the hero of imaginative adventures, where they'll meet extraordinary beings and uncover mesmerizing worlds.",
+            "getStarted": "Get started",
+            "tryNow": "Try now for free",
+            "alt": "bedtime stories"
+        }
     }
+    
 
 }
