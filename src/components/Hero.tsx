@@ -9,7 +9,7 @@ const Hero = () => {
 
     return (
         <section>
-            <div className="relative isolate px-6 pt-14 lg:px-8">
+            <div className="relative isolate px-6 pt-14 lg:px-8 flex items-center min-h-[calc(100dvh-80px)]">
                 <div
                     className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                     aria-hidden="true"
@@ -22,9 +22,9 @@ const Hero = () => {
                         }}
                     />
                 </div>
-
-                <div className='flex items-center justify-between max-w-[1450px] mx-auto gap-8'>
-                    <div className="max-w-2xl py-32 sm:py-48 lg:py-56 flex-1">
+                
+                <div className='flex flex-col min-[1160px]:flex-row items-center justify-between max-w-[1450px] mx-auto gap-8'>
+                    <div className="max-w-2xl py-32 sm:py-40 lg:py-48">
                         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                                 {t('alertMsg') + ' '}
@@ -56,9 +56,9 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    <div className='w-[700px] h-[700px] grid place-items-center'>
+                    <div className='max-w-[700px] max-h-[700px] grid place-items-center'>
                         <Image
-                            src="/home/bedtime-story.webp" //cambiar el nombre y arreglar la foto
+                            src="/home/bedtime-story.webp"
                             alt={t('alt')}
                             width={700}
                             height={700}
