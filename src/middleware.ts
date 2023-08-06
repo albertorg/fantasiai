@@ -19,16 +19,18 @@ export default authMiddleware({
         "/es", "/it", "/pl", "/en", 
         "/:locale/sign-in",
         "/:locale/sign-up",
-        
+        "/:locale/app",
+
     ],
 
     ignoredRoutes: [
         "/:locale/sign-up/verify-email-address",
-        "/:locale/sign-in/sso-callback"
+        "/:locale/sign-in/sso-callback",
+        
     ]
 })
 
 export const config = {
-    matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
-    // matcher: ['/((?!api|_next|.*\\..*).*)']
+    // matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+    matcher: ['/((?!api|_next|.*\\..*).*)']
 }
