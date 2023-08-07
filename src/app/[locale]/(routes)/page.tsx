@@ -3,8 +3,6 @@ import { Hero } from "@/components"
 
 const HomePage = async () => {
 
-  
-
   return (
     <main>
       <Hero />
